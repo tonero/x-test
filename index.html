@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Example</title>
+</head>
+<body>
+    <h1>Welcome to My Webpage!</h1>
+    <p>Here's a cool TrustX embed below:</p>
+	
+	<script>
+		window.addEventListener('message', (event) => {
+			if (!event.data || !event.data.event) return
+			switch (event.data.event) {
+				case 'webCompleted':
+					if (event.message) {
+						alert('Review')
+					} else alert('Process ended successfully')
+					break
+				case 'webTimeout':
+					alert('Session expired')
+					break
+				case 'error':
+					alert('Process ended with an error')
+					break
+				default:
+					console.log(event.data)
+			}
+		})
+	</script>
+	
+	<iframe 
+		src="https://emeademos.oak.trustx.com/web/trustweb?pt=TQ6OWOJB7TJPIFQYSU6T4ZAYEM" 
+		allow="camera; microphone; gyroscope; accelerometer"  
+		width="600" 
+		height="800"> 
+	</iframe>
+ 
+    <!-- This is the iframe embedding a YouTube video 
+    <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/P23q1BluE4o?si=DUz8W9AwEVwHrY6U"
+        frameborder="0"
+        allowfullscreen>
+    </iframe>
+	-->
+</body>
+</html>

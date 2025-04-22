@@ -6,6 +6,19 @@
     <title>Iframe Example</title>
 
 <style>
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100vw;
+      border: none;
+      display: block;
+    }	
+	
  .responsive-iframe {
     position: relative;
     width: 100%;
@@ -24,28 +37,35 @@
 </head>
 <body>
     <h1>Welcome to My Webpage!</h1>
-    <p>Here's a cool TrustX embed</p>
+    <p>Here's a cool TrustX embed!</p>
 	
 
 	<div id="loader">Loading...</div>
-	<div class = "responsive-iframe">
+	<!--<div class = "responsive-iframe">-->
 		<iframe 
 			id="myIframe"
 			src="https://emeademos.oak.trustx.com/web/trustweb?pt=TQ6OWOJB7TJPIFQYSU6T4ZAYEM" 
 			allow="camera; microphone; gyroscope; accelerometer"
-			width="600"
-			height="1000"
 			allowfullscreen> 
 		</iframe>
-	</div>
+	<!--</div>-->
 
 	<script>
+		
 		var iframe = document.getElementById("myIframe");
 		iframe.onload = function() {
 		    document.getElementById("loader").style.display = "none";
 		    iframe.style.display = "block";
 		};
 
+		function resizeIframeToViewport() {
+		    const iframe = document.getElementById("myIframe");
+		    iframe.style.height = window.innerHeight + "px";
+		}
+		
+		    // Resize on load and when window size changes
+		window.addEventListener("load", resizeIframeToViewport);
+		window.addEventListener("resize", resizeIframeToViewport);
 		window.addEventListener('message', (event) => {
 			if (!event.data || !event.data.event) return
 			switch (event.data.event) {

@@ -24,13 +24,12 @@
 </style>
 </head>
 <body>
-    <h1>Welcome!!</h1>
+    <h1>Welcome!</h1>
     <p>Here's a cool TrustX embed</p>
 	
 	<div id="loader">Loading...</div>
 		<iframe 
 			id="myIframe"
-			scrolling="yes"
 			src="https://emeademos.oak.trustx.com/web/trustweb?pt=TQ6OWOJB7TJPIFQYSU6T4ZAYEM" 
 			allow="camera; microphone; gyroscope; accelerometer"
 			allowfullscreen> 
@@ -41,10 +40,11 @@
 		iframe.onload = function() {
 		    document.getElementById("loader").style.display = "none";
 		    iframe.style.display = "block";
+		    iframe.contentWindow.scrollTo(0, iframe.contentDocument.body.scrollHeight);
 		};
 
 
-		iframe.contentWindow.scrollTo(0, iframe.contentDocument.body.scrollHeight);
+		
 
 		window.addEventListener('message', (event) => {
 			if (!event.data || !event.data.event) return

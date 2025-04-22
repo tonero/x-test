@@ -9,27 +9,6 @@
     <h1>Welcome to My Webpage!</h1>
     <p>Here's a cool TrustX embed below:</p>
 	
-	<script>
-		
-		window.addEventListener('message', (event) => {
-			if (!event.data || !event.data.event) return
-			switch (event.data.event) {
-				case 'webCompleted':
-					if (event.message) {
-						alert('Review')
-					} else alert('Process ended successfully')
-					break
-				case 'webTimeout':
-					alert('Session expired')
-					break
-				case 'error':
-					alert('Process ended with an error')
-					break
-				default:
-					console.log(event.data)
-			}
-		})
-	</script>
 
 	<div id="loader">Loading...</div>
 	
@@ -49,6 +28,25 @@
 		    document.getElementById("loader").style.display = "none";
 		    iframe.style.display = "block";
 		};
+
+		window.addEventListener('message', (event) => {
+			if (!event.data || !event.data.event) return
+			switch (event.data.event) {
+				case 'webCompleted':
+					if (event.message) {
+						alert('Review')
+					} else alert('Process ended successfully')
+					break
+				case 'webTimeout':
+					alert('Session expired')
+					break
+				case 'error':
+					alert('Process ended with an error')
+					break
+				default:
+					console.log(event.data)
+			}
+		})
 	</script>
  
 

@@ -24,7 +24,7 @@
 </style>
 </head>
 <body>
-    <h1>Welcome!</h1>
+    <h1>Welcome!!</h1>
     <p>Here's a cool TrustX embed</p>
 	
 	<div id="loader">Loading...</div>
@@ -43,6 +43,8 @@
 		    iframe.style.display = "block";
 		};
 
+
+		iframe.contentWindow.scrollTo(0, iframe.contentDocument.body.scrollHeight);
 
 		window.addEventListener('message', (event) => {
 			if (!event.data || !event.data.event) return

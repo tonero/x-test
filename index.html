@@ -10,12 +10,7 @@
     <p>Here's a cool TrustX embed below:</p>
 	
 	<script>
-
-		var iframe = document.getElementById("myIframe");
-		iframe.onload = function() {
-		    document.getElementById("loader").style.display = "none";
-		    iframe.style.display = "block";
-		};
+		
 		window.addEventListener('message', (event) => {
 			if (!event.data || !event.data.event) return
 			switch (event.data.event) {
@@ -47,6 +42,14 @@
 		width="600" 
 		height="800"> 
 	</iframe>
+
+	<script>
+		var iframe = document.getElementById("myIframe");
+		iframe.onload = function() {
+		    document.getElementById("loader").style.display = "none";
+		    iframe.style.display = "block";
+		};
+	</script>
  
 
 </body>

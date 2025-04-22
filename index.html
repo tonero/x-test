@@ -10,6 +10,12 @@
     <p>Here's a cool TrustX embed below:</p>
 	
 	<script>
+
+		var iframe = document.getElementById("myIframe");
+		iframe.onload = function() {
+		    document.getElementById("loader").style.display = "none";
+		    iframe.style.display = "block";
+		};
 		window.addEventListener('message', (event) => {
 			if (!event.data || !event.data.event) return
 			switch (event.data.event) {
@@ -29,8 +35,12 @@
 			}
 		})
 	</script>
+
+	<div id="loader">Loading...</div>
 	
 	<iframe 
+		id="iframe"
+		style="display:none;"
 		src="https://emeademos.oak.trustx.com/web/trustweb?pt=TQ6OWOJB7TJPIFQYSU6T4ZAYEM" 
 		loading="lazy"
 		allow="camera; microphone; gyroscope; accelerometer"  

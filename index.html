@@ -28,6 +28,14 @@
 		    iframe.style.display = "block";
 		};
 
+		 function resizeIframe() {
+		    const iframe = document.getElementById("myIframe");
+		    iframe.style.height = window.innerHeight + "px";
+		    iframe.style.width = window.innerWidth + "px";
+		  }
+
+		window.addEventListener("resize", resizeIframe);
+  		window.addEventListener("load", resizeIframe);
 		window.addEventListener('message', (event) => {
 			if (!event.data || !event.data.event) return
 			switch (event.data.event) {

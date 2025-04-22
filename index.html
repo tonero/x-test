@@ -10,12 +10,14 @@
     html, body {
       margin: 0;
       padding: 0;
+      height: 100%;	    
       overflow: hidden;
     }
 
     iframe {
       width: 100vw;
       border: none;
+      height: var(--vh, 100vh);	    
       display: block;
     }	
 	
@@ -37,7 +39,7 @@
 </head>
 <body>
     <h1>Welcome to My Webpage!</h1>
-    <p>Here's a cool TrustX embed!</p>
+    <p>Here's a cool TrustX embed</p>
 	
 
 	<div id="loader">Loading...</div>
@@ -62,10 +64,19 @@
 		    const iframe = document.getElementById("myIframe");
 		    iframe.style.height = window.innerHeight + "px";
 		}
+
+	        function updateViewportHeight() {
+	         // Get the actual viewport height
+	      	  let vh = window.innerHeight * 0.01;
+	         // Set the CSS variable --vh to the root element
+	          document.documentElement.style.setProperty('--vh', `${vh}px`);
+	        }		
 		
 		    // Resize on load and when window size changes
-		window.addEventListener("load", resizeIframeToViewport);
-		window.addEventListener("resize", resizeIframeToViewport);
+		//window.addEventListener("load", resizeIframeToViewport);
+		//window.addEventListener("resize", resizeIframeToViewport);
+		window.addEventListener('load', updateViewportHeight);
+                window.addEventListener('resize', updateViewportHeight);
 		window.addEventListener('message', (event) => {
 			if (!event.data || !event.data.event) return
 			switch (event.data.event) {

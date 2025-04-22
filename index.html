@@ -23,10 +23,7 @@
 	
 </style>
 </head>
-<body>
-    <h1>Welcome!</h1>
-    <p>Here's a cool TrustX embed</p>
-	
+<body>	
 	<div id="loader">Loading...</div>
 		<iframe 
 			id="myIframe"
@@ -40,7 +37,6 @@
 		iframe.onload = function() {
 		    document.getElementById("loader").style.display = "none";
 		    iframe.style.display = "block";
-		    iframe.contentWindow.scrollTo(0, iframe.contentDocument.body.scrollHeight);
 		};
 
 

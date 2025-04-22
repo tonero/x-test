@@ -9,15 +9,15 @@
 
     html, body {
       margin: 0;
-      padding: 0;
-      height: 100%;	    
+      padding: 0;	    
       overflow: hidden;
     }
 
     iframe {
       width: 100vw;
+      height: 100vh;
+      height: 100lvh;
       border: none;
-      height: var(--vh, 100vh);	    
       display: block;
     }	
 	
@@ -75,8 +75,8 @@
 		    // Resize on load and when window size changes
 		//window.addEventListener("load", resizeIframeToViewport);
 		//window.addEventListener("resize", resizeIframeToViewport);
-		window.addEventListener('load', updateViewportHeight);
-                window.addEventListener('resize', updateViewportHeight);
+		//window.addEventListener('load', updateViewportHeight);
+                //window.addEventListener('resize', updateViewportHeight);
 		window.addEventListener('message', (event) => {
 			if (!event.data || !event.data.event) return
 			switch (event.data.event) {

@@ -15,8 +15,8 @@
 
     iframe {
       width: 100vw;
-      height: 100vh;
-      height: 100lvh;	    
+      height: 120vh;
+      height: 120lvh;	    
       border: none;
       display: block;
     }	
@@ -37,9 +37,6 @@
 		    document.getElementById("loader").style.display = "none";
 		    iframe.style.display = "block";
 		};
-
-
-		
 
 		window.addEventListener('message', (event) => {
 			if (!event.data || !event.data.event) return
